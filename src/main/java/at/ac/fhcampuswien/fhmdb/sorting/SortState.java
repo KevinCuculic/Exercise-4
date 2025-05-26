@@ -6,4 +6,5 @@ import java.util.List;
 public interface SortState {
     void sort(List<Movie> movies);
     void setMovieList(List<Movie> movies);
+    SortState nextState();
 }

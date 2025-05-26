@@ -192,7 +192,7 @@ public class MovieListController implements Initializable {
     }
 
     private SortState currentState;
-
+/*
     public void toggleSortState() {
         if (currentState instanceof UnsortedState) {
             currentState = new AscendingState();
@@ -204,7 +204,7 @@ public class MovieListController implements Initializable {
         currentState.setMovieList(allMovies); // Set the list every time state changes
         currentState.sort(observableMovies);
         movieListView.refresh();
-    }
+    }*/
 
 
 
@@ -221,6 +221,12 @@ public class MovieListController implements Initializable {
                 .toList();
     }
 
+    public void toggleSortState() {
+        currentState = currentState.nextState();
+        currentState.setMovieList(allMovies);
+        currentState.sort(observableMovies);
+        movieListView.refresh();
+    }
     public List<Movie> filterByGenre(List<Movie> movies, Genre genre){
         if(genre == null) return movies;
 
