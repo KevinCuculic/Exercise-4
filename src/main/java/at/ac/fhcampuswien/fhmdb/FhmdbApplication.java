@@ -5,7 +5,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
+import at.ac.fhcampuswien.fhmdb.controllers.ControllerFactory;
 import java.io.IOException;
 import java.util.Objects;
 
@@ -13,7 +13,7 @@ public class FhmdbApplication extends Application {
     @Override
     public void start(Stage stage) {
         FXMLLoader fxmlLoader = new FXMLLoader(FhmdbApplication.class.getResource(UIComponent.HOME.path));
-
+        fxmlLoader.setControllerFactory(ControllerFactory.getInstance());
         try{
             Scene scene = new Scene(fxmlLoader.load(), 890, 620);
             scene.getStylesheets().add(Objects.requireNonNull(FhmdbApplication.class.getResource("/styles/styles.css")).toExternalForm());
